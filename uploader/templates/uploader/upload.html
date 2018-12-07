@@ -1,0 +1,37 @@
+{% extends "uploader/base.html" %}
+
+{% block content %}
+<div class="row mt-2">
+    <div class="col-3"></div>
+    <div class="col">
+        <form id="myDropzone" class="dropzone" action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        </form>
+        <center>
+            <button id="submit-all" class="btn btn-primary mt-1">
+                Upload
+            </button>
+        </center>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+
+    Dropzone.options.myDropzone = {
+        autoProcessQueue : false,
+        maxFiles : 1,
+        addRemoveLinks : true,
+        init : function() {
+            var submitButton = document.querySelector("#submit-all")
+            myDropzone = this;
+            submitButton.addEventListener("click", function() {
+                myDropzone.processQueue();
+            });
+        }
+    };
+
+</script>
+{% endblock %}

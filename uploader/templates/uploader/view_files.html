@@ -1,0 +1,34 @@
+{% extends "uploader/base.html" %}
+
+{% block content %}
+<div class="row mt-2">
+    <div class="col-1"></div>
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Filename</th>
+                <th scope="col">Size</th>
+                <th scope="col">Upload Time</th>
+                <th scope="col">Last Access Time</th>
+                <th scope="col">Downloads</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in query_results %}
+            <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td><a href="{{ item.url }}">{{ item.filename }}</a></td>
+                <td>{{ item.file.size|filesizeformat }}</td>
+                <td>{{ item.uploaded_on }} </td>
+                <td>{{ item.last_accessed_on }} </td>
+                <td>{{ item.downloads }} </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-1"></div>
+</div>
+{% endblock %}

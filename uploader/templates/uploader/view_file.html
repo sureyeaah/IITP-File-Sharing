@@ -1,0 +1,33 @@
+{% extends "uploader/base.html" %}
+
+{% block content %}
+<div class="row mt-2">
+    <div class="col-3"></div>
+    <div class="col">
+        <center>
+            <a href="{{ download_url }}">[Download File]</a>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th scope="row">File name</th>
+                    <td>{{ obj.filename }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Size</th>
+                    <td>{{ obj.file.size|filesizeformat }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total Downloads</th>
+                    <td>{{ obj.downloads }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Upload Time</th>
+                    <td>{{ obj.uploaded_on }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% endblock %}

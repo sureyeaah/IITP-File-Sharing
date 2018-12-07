@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}IITP File Sharing{% endblock %}</title>
+		{% load staticfiles %}
+		<link href="{% static 'uploader/css/dropzone.css' %}" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="{% static 'uploader/bootstrap/css/bootstrap.min.css' %}" >
+        <script src="{% static 'uploader/bootstrap/js/bootstrap.min.js' %}" ></script>
+
+	</head>
+	<body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">IITP File Sharing</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Upload</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/all_files">All Files</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/recent_files">Recent Files</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <script src="{% static 'uploader/js/dropzone.js' %}"></script>
+        {% block script %}
+        {% endblock %}
+	</body>
+</html>
